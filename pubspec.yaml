@@ -1,0 +1,57 @@
+name: tugas_akhir
+description: School Management System - Dashboard Only (No Login/Logout)
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # UI Components
+  cupertino_icons: ^1.0.8
+
+  # Forms & Validation
+  dropdown_search: ^6.0.1
+  date_time_picker: ^2.1.0
+  fzregex: ^2.0.0
+  flrx_validator: ^0.6.0
+
+  # Styling & Graphics
+  flutter_svg: ^2.0.16
+  flutter_randomcolor: ^1.0.16
+  randomizer_null_safe: ^0.1.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Assets
+  assets:
+    - assets/
+    - assets/activity.png
+    - assets/attendance.png
+    - assets/bus.png
+    - assets/calendar.png
+    - assets/classroom.png
+    - assets/downloads.png
+    - assets/exam.png
+    - assets/exit.png
+    - assets/fee.png
+    - assets/home.png
+    - assets/homework.png
+    - assets/leave_apply.png
+    - assets/library.png
+    - assets/message.png
+    - assets/notification.png
+    - assets/profile.png
+    - assets/school_building.png
+
