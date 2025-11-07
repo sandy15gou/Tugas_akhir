@@ -15,6 +15,11 @@ dependencies:
   # UI Components
   cupertino_icons: ^1.0.8
 
+  # Database
+  sqflite: ^2.3.0
+  path_provider: ^2.1.1
+  path: ^1.8.3
+
   # Forms & Validation
   dropdown_search: ^6.0.1
   date_time_picker: ^2.1.0

@@ -89,7 +89,7 @@ class _UserDetailCardState extends State<UserDetailCard>
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                       child: Text(
-                                        "BCM2005",
+                                        "NIS-2024001",
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 13,
@@ -101,7 +101,7 @@ class _UserDetailCardState extends State<UserDetailCard>
                                   Padding(
                                     padding: const EdgeInsets.only(top: 10.0),
                                     child: Text(
-                                      "M.Irtaza",
+                                      "Ahmad Zulfikar",
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 21,
@@ -116,7 +116,7 @@ class _UserDetailCardState extends State<UserDetailCard>
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          "Standard: 12",
+                                          "Kelas: 8A",
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white,
@@ -126,7 +126,7 @@ class _UserDetailCardState extends State<UserDetailCard>
                                           width: 50,
                                         ),
                                         Text(
-                                          "Section: B",
+                                          "SMPN 1 Jambi",
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white,

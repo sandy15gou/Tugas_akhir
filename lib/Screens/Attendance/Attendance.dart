@@ -20,7 +20,7 @@ class _AttendanceState extends State<Attendance>
     return Scaffold(
       key: _scaffoldKey,
       appBar: CommonAppBar(
-        title: "Attendance",
+        title: "Kehadiran",
         menuenabled: true,
         notificationenabled: true,
         ontap: () {
@@ -52,8 +52,8 @@ class _AttendanceState extends State<Attendance>
                           unselectedLabelColor: Colors.black26,
                           indicatorColor: Colors.black,
                           tabs: [
-                            Tab(text: 'Today'),
-                            Tab(text: 'Overall'),
+                            Tab(text: 'Hari Ini'),
+                            Tab(text: 'Keseluruhan'),
                           ],
                         ),
                       ),

@@ -100,7 +100,7 @@ class _OverallAttendanceCardState extends State<OverallAttendanceCard>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Morning Half",
+                        "Pagi",
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -111,7 +111,7 @@ class _OverallAttendanceCardState extends State<OverallAttendanceCard>
                         height: 10,
                       ),
                       Text(
-                        "Afternoon Half",
+                        "Siang",
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,

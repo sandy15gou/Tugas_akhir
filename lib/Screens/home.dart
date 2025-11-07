@@ -9,7 +9,12 @@ import 'package:tugas_akhir/Widgets/MainDrawer.dart';
 import 'package:tugas_akhir/Widgets/UserDetailCard.dart';
 
 import 'Attendance/Attendance.dart';
-import 'Leave_Apply/LeaveApply.dart';
+import 'Leave_Apply/LeaveApplySimple.dart';
+import 'TimeTable/TimeTable.dart';
+import 'Profile/ProfilePage.dart';
+import 'About/AboutPage.dart';
+import 'Prestasi/PrestasiPage.dart';
+import 'Library/PerpustakaanPage.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -110,9 +115,16 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                           transform: Matrix4.translationValues(
                               delayedAnimation.value * width, 0, 0),
                           child: Bouncing(
-                            onPress: () {},
+                            onPress: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        ProfilePage(),
+                                  ));
+                            },
                             child: DashboardCard(
-                              name: "Profile",
+                              name: "Profil",
                               imgpath: "profile.png",
                             ),
                           ),
@@ -144,7 +156,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                   ));
                             },
                             child: DashboardCard(
-                              name: "Exam",
+                              name: "Ujian",
                               imgpath: "exam.png",
                             ),
                           ),
@@ -153,9 +165,16 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                           transform: Matrix4.translationValues(
                               delayedAnimation.value * width, 0, 0),
                           child: Bouncing(
-                            onPress: () {},
+                            onPress: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        TimeTable(),
+                                  ));
+                            },
                             child: DashboardCard(
-                              name: "TimeTable",
+                              name: "Jadwal",
                               imgpath: "calendar.png",
                             ),
                           ),
@@ -178,9 +197,16 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                           transform: Matrix4.translationValues(
                               muchDelayedAnimation.value * width, 0, 0),
                           child: Bouncing(
-                            onPress: () {},
+                            onPress: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        PerpustakaanPage(),
+                                  ));
+                            },
                             child: DashboardCard(
-                              name: "Library",
+                              name: "Perpustakaan",
                               imgpath: "library.png",
                             ),
                           ),
@@ -189,10 +215,17 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                           transform: Matrix4.translationValues(
                               delayedAnimation.value * width, 0, 0),
                           child: Bouncing(
-                            onPress: () {},
+                            onPress: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        AboutPage(),
+                                  ));
+                            },
                             child: DashboardCard(
-                              name: "Track Bus",
-                              imgpath: "bus.png",
+                              name: "Tentang Kami",
+                              imgpath: "setting.gif",
                             ),
                           ),
                         ),
@@ -214,10 +247,17 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                           transform: Matrix4.translationValues(
                               muchDelayedAnimation.value * width, 0, 0),
                           child: Bouncing(
-                            onPress: () {},
+                            onPress: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        PrestasiPage(),
+                                  ));
+                            },
                             child: DashboardCard(
-                              name: "Activity",
-                              imgpath: "activity.png",
+                              name: "Prestasi",
+                              imgpath: "exam.png",
                             ),
                           ),
                         ),
@@ -229,12 +269,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        LeaveApply(),
+                                    builder: (BuildContext context) => LeaveApplySimple(), // TEMPORARY: Using simple version for testing
                                   ));
                             },
                             child: DashboardCard(
-                              name: "Apply Leave",
+                              name: "Ajukan Izin",
                               imgpath: "leave_apply.png",
                             ),
                           ),
