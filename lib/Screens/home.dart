@@ -7,6 +7,7 @@ import 'package:tugas_akhir/Widgets/BouncingButton.dart';
 import 'package:tugas_akhir/Widgets/DashboardCards.dart';
 import 'package:tugas_akhir/Widgets/MainDrawer.dart';
 import 'package:tugas_akhir/Widgets/UserDetailCard.dart';
+import 'package:tugas_akhir/services/AuthManager.dart';
 
 import 'Attendance/Attendance.dart';
 import 'Leave_Apply/LeaveApplySimple.dart';

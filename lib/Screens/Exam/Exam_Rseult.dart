@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tugas_akhir/Widgets/AppBar.dart';
 import 'package:tugas_akhir/Widgets/MainDrawer.dart';
+import 'package:tugas_akhir/services/AuthManager.dart';
 import 'ManageJadwalUjianPage.dart';
 
 class ExamResult extends StatefulWidget {
@@ -107,6 +108,7 @@ class _ExamResultState extends State<ExamResult> {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+    final authManager = AuthManager.instance;
 
     return Scaffold(
       key: _scaffoldKey,
@@ -123,12 +125,14 @@ class _ExamResultState extends State<ExamResult> {
         elevation: 0,
         child: MainDrawer(),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _navigateToManageJadwal(),
-        backgroundColor: Color(0xFF134B70),
-        child: Icon(Icons.add, color: Colors.white),
-        tooltip: 'Tambah Jadwal Ujian',
-      ),
+      floatingActionButton: authManager.canEdit()
+          ? FloatingActionButton(
+              onPressed: () => _navigateToManageJadwal(),
+              backgroundColor: Color(0xFF134B70),
+              child: Icon(Icons.add, color: Colors.white),
+              tooltip: 'Tambah Jadwal Ujian',
+            )
+          : null,
       body: Column(
         children: [
           // Header Info
@@ -191,6 +195,7 @@ class _ExamResultState extends State<ExamResult> {
 
   Widget _buildExamCard(Map<String, dynamic> ujian, int index) {
     final isSelesai = ujian['status'] == 'Selesai';
+    final authManager = AuthManager.instance;
 
     return Card(
       margin: EdgeInsets.only(bottom: 12),
@@ -214,11 +219,12 @@ class _ExamResultState extends State<ExamResult> {
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            IconButton(
-              icon: Icon(Icons.edit, color: Color(0xFF134B70), size: 20),
-              onPressed: () => _navigateToManageJadwal(jadwal: ujian, index: index),
-              tooltip: 'Edit',
-            ),
+            if (authManager.canEdit())
+              IconButton(
+                icon: Icon(Icons.edit, color: Color(0xFF134B70), size: 20),
+                onPressed: () => _navigateToManageJadwal(jadwal: ujian, index: index),
+                tooltip: 'Edit',
+              ),
             Icon(Icons.expand_more),
           ],
         ),

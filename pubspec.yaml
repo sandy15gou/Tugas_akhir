@@ -19,6 +19,7 @@ dependencies:
   sqflite: ^2.3.0
   path_provider: ^2.1.1
   path: ^1.8.3
+  shared_preferences: ^2.2.2
 
   # Forms & Validation
   dropdown_search: ^6.0.1

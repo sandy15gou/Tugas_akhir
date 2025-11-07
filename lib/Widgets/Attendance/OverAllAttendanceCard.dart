@@ -19,6 +19,26 @@ class _OverallAttendanceCardState extends State<OverallAttendanceCard>
   late Animation animation, delayedAnimation;
   late AnimationController animationController;
 
+  // Format tanggal dari YYYY-MM-DD ke DD.MM.YYYY
+  String formatDate(String date) {
+    try {
+      // Jika sudah dalam format DD.MM.YYYY
+      if (date.contains('.')) {
+        return date;
+      }
+      // Jika dalam format YYYY-MM-DD
+      if (date.contains('-')) {
+        final parts = date.split('-');
+        if (parts.length == 3) {
+          return '${parts[2]}.${parts[1]}.${parts[0]}';
+        }
+      }
+      return date;
+    } catch (e) {
+      return date;
+    }
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -76,7 +96,7 @@ class _OverallAttendanceCardState extends State<OverallAttendanceCard>
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        "${widget.date}",
+                        formatDate(widget.date),
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
