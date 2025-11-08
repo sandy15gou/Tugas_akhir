@@ -43,3 +43,22 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Flutter/Dart/Pub related (tambahan)
+.packages
+.flutter-plugins
+*.g.dart          # Generated files (jika pakai code generation)
+
+# Android (tambahan)
+android/.gradle/
+android/local.properties
+android/captures/
+android/key.properties  # PENTING: jangan commit file key signing!
+
+# iOS (tambahan)
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Runner.xcworkspace
+
