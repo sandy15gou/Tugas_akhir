@@ -225,8 +225,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                   ));
                             },
                             child: DashboardCard(
-                              name: "Tentang Kami",
-                              imgpath: "setting.gif",
+                              name: "Profil Sekolah",
+                              imgpath: "school_building.png",
                             ),
                           ),
                         ),

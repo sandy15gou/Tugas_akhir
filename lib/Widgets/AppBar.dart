@@ -34,11 +34,12 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
           : null,
       actions: [
         notificationenabled == true
-            ? InkWell(
-                onTap: () {},
+            ? Padding(
+                padding: const EdgeInsets.only(right: 10.0),
                 child: Image.asset(
-                  "assets/notification.png",
-                  width: 35,
+                  "assets/school_building.png",
+                  width: 40,
+                  height: 40,
                 ),
               )
             : SizedBox(

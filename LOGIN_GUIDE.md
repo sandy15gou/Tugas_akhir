@@ -109,7 +109,7 @@
 | Edit Prestasi | ✅ | ❌ | ❌ |
 | Ajukan Izin | ✅ | ✅ | ✅ |
 | Lihat Perpustakaan | ✅ | ✅ | ✅ |
-| Tentang Kami | ✅ | ✅ | ✅ |
+| Profil Sekolah | ✅ | ✅ | ✅ |
 | Profil | ✅ | ✅ | ✅ |
 
 ---

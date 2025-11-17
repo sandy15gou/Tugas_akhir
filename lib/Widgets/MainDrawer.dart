@@ -200,8 +200,8 @@ class _MainDrawerState extends State<MainDrawer> {
           },
         ),
         DrawerListTile(
-          imgpath: "setting.gif",
-          name: "Tentang Kami",
+          imgpath: "school_building.png",
+          name: "Profil Sekolah",
           ontap: () {
             Navigator.push(
               context,

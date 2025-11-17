@@ -38,7 +38,7 @@ class AboutPage extends StatelessWidget {
       key: _scaffoldKey,
       backgroundColor: Colors.grey[100],
       appBar: CommonAppBar(
-        title: "Tentang Kami",
+        title: "Profil Sekolah",
         menuenabled: true,
         notificationenabled: true,
         ontap: () {
@@ -315,6 +315,7 @@ class AboutPage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12.0),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             padding: EdgeInsets.all(8),
@@ -325,25 +326,30 @@ class AboutPage extends StatelessWidget {
             child: Icon(icon, color: Color(0xFF134B70), size: 20),
           ),
           SizedBox(width: 12),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                label,
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.grey[600],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  label,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey[600],
+                  ),
                 ),
-              ),
-              Text(
-                value,
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black87,
+                SizedBox(height: 2),
+                Text(
+                  value,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black87,
+                  ),
+                  maxLines: 3,
+                  overflow: TextOverflow.visible,
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
