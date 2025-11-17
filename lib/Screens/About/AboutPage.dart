@@ -204,18 +204,47 @@ class AboutPage extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            // Icon Sekolah jika tidak ada foto
+            // Foto Kepala Sekolah
             Container(
-              height: 200,
+              height: 300,
               decoration: BoxDecoration(
-                color: Color(0xFF134B70).withAlpha(25),
+                color: Colors.grey.shade100,
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Center(
-                child: Icon(
-                  Icons.school,
-                  size: 100,
-                  color: Color(0xFF134B70),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(
+                  'assets/kepala_sekolah.png..jpeg',
+                  width: double.infinity,
+                  fit: BoxFit.contain,
+                  errorBuilder: (context, error, stackTrace) {
+                    // Jika gambar tidak ditemukan, tampilkan icon default
+                    print('Error loading image: $error');
+                    return Container(
+                      height: 300,
+                      decoration: BoxDecoration(
+                        color: Color(0xFF134B70).withAlpha(25),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.school,
+                              size: 100,
+                              color: Color(0xFF134B70),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              'Gambar tidak ditemukan',
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
             ),
@@ -227,10 +256,18 @@ class AboutPage extends StatelessWidget {
                   fontSize: 18,
                   color: Color(0xFF134B70)),
             ),
+            const SizedBox(height: 4),
+            const Text(
+              'Dra. Hj. Siti Nurhayati, M.Pd',
+              style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                  color: Colors.black87),
+            ),
             const SizedBox(height: 8),
             const Text(
               'Kepala sekolah yang dikenal dengan kepemimpinan inspiratif dan dedikasi tinggi terhadap pendidikan.',
-              textAlign: TextAlign.justify,
+              textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14, color: Colors.black87),
             ),
           ],

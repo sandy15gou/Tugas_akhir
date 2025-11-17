@@ -37,9 +37,18 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
             ? Padding(
                 padding: const EdgeInsets.only(right: 10.0),
                 child: Image.asset(
-                  "assets/school_building.png",
-                  width: 40,
-                  height: 40,
+                  "assets/icon sekolah.jpeg",
+                  width: 45,
+                  height: 45,
+                  fit: BoxFit.contain,
+                  errorBuilder: (context, error, stackTrace) {
+                    // Fallback jika logo tidak ditemukan
+                    return Icon(
+                      Icons.school,
+                      size: 32,
+                      color: Color(0xFF134B70),
+                    );
+                  },
                 ),
               )
             : SizedBox(
