@@ -192,30 +192,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       SizedBox(height: 24),
 
-                      // Demo Credentials
-                      Container(
-                        padding: EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: Colors.blue.shade50,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Demo Login:',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 13,
-                              ),
-                            ),
-                            SizedBox(height: 8),
-                            _buildDemoCredential('Admin', 'admin / admin123'),
-                            _buildDemoCredential('Guru', 'guru1 / guru123'),
-                            _buildDemoCredential('Siswa', 'siswa1 / siswa123'),
-                          ],
-                        ),
-                      ),
+
                       SizedBox(height: 16),
 
                       // Link Registrasi
