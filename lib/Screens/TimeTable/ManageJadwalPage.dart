@@ -4,12 +4,10 @@ import 'package:tugas_akhir/services/Repository.dart';
 
 class ManageJadwalPage extends StatefulWidget {
   final JadwalPelajaran? jadwal; // null jika tambah baru, ada value jika edit
-  final int siswaId;
 
   const ManageJadwalPage({
     Key? key,
     this.jadwal,
-    required this.siswaId,
   }) : super(key: key);
 
   @override
@@ -83,8 +81,8 @@ class _ManageJadwalPageState extends State<ManageJadwalPage> {
     try {
       final jadwal = JadwalPelajaran(
         id: widget.jadwal?.id,
-        siswaId: widget.siswaId,
-        tingkatKelas: _selectedTingkatKelas ?? 8, // Default kelas 8
+        siswaId: 0, // 0 karena jadwal berdasarkan tingkat kelas, bukan siswa tertentu
+        tingkatKelas: _selectedTingkatKelas!, // Required
         hari: _selectedHari!,
         mataPelajaran: _mataPelajaranController.text,
         guru: _guruController.text,

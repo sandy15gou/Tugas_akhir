@@ -46,7 +46,7 @@ class _TimeTableState extends State<TimeTable> with SingleTickerProviderStateMix
         return;
       }
 
-      // Jika user adalah siswa, gunakan tingkat kelas mereka
+      // Semua user (siswa, guru, admin) melihat jadwal berdasarkan tingkat kelas
       if (authManager.isSiswa) {
         final tingkatKelas = authManager.getTingkatKelas();
         if (tingkatKelas != null) {
@@ -56,19 +56,39 @@ class _TimeTableState extends State<TimeTable> with SingleTickerProviderStateMix
             _isLoading = false;
           });
         } else {
-          // Fallback ke siswa_id jika kelas tidak terdeteksi
-          final jadwal = await _repository.getJadwalGroupByHari(currentUser.id ?? 1);
           setState(() {
-            _jadwalByHari = jadwal;
+            _jadwalByHari = {};
             _isLoading = false;
           });
         }
-      } else {
-        // Untuk guru dan admin, tampilkan semua jadwal (atau sesuai kebutuhan)
-        // Misalnya tampilkan jadwal kelas 8 sebagai default
-        final jadwal = await _repository.getJadwalGroupByHariByTingkatKelas(8);
+      } else if (authManager.isGuru || authManager.isAdmin) {
+        // Untuk guru dan admin, tampilkan semua jadwal dari semua kelas
+        // atau bisa pilih kelas tertentu
+        final allJadwal = <String, List<JadwalPelajaran>>{};
+
+        // Load jadwal untuk semua tingkat kelas (7, 8, 9)
+        for (int tingkat in [7, 8, 9]) {
+          final jadwalKelas = await _repository.getJadwalGroupByHariByTingkatKelas(tingkat);
+          jadwalKelas.forEach((hari, jadwalList) {
+            if (!allJadwal.containsKey(hari)) {
+              allJadwal[hari] = [];
+            }
+            allJadwal[hari]!.addAll(jadwalList);
+          });
+        }
+
+        // Sort jadwal by jam_mulai
+        allJadwal.forEach((hari, jadwalList) {
+          jadwalList.sort((a, b) => a.jamMulai.compareTo(b.jamMulai));
+        });
+
         setState(() {
-          _jadwalByHari = jadwal;
+          _jadwalByHari = allJadwal;
+          _isLoading = false;
+        });
+      } else {
+        setState(() {
+          _jadwalByHari = {};
           _isLoading = false;
         });
       }
@@ -86,7 +106,6 @@ class _TimeTableState extends State<TimeTable> with SingleTickerProviderStateMix
       MaterialPageRoute(
         builder: (context) => ManageJadwalPage(
           jadwal: jadwal,
-          siswaId: 1, // Default siswa ID
         ),
       ),
     );
@@ -177,6 +196,9 @@ class _TimeTableState extends State<TimeTable> with SingleTickerProviderStateMix
                                     jamMulai: jadwal.jamMulai,
                                     jamSelesai: jadwal.jamSelesai,
                                     ruangan: jadwal.ruangan,
+                                    tingkatKelas: (authManager.isGuru || authManager.isAdmin)
+                                        ? jadwal.tingkatKelas
+                                        : null, // Only show class level for admin/guru
                                     onTap: authManager.canEdit()
                                         ? () => _navigateToManageJadwal(jadwal: jadwal)
                                         : null,

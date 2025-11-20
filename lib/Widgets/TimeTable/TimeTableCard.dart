@@ -6,6 +6,7 @@ class TimeTableCard extends StatelessWidget {
   final String jamMulai;
   final String jamSelesai;
   final String ruangan;
+  final int? tingkatKelas; // Optional - untuk menampilkan kelas
   final VoidCallback? onTap;
 
   const TimeTableCard({
@@ -15,6 +16,7 @@ class TimeTableCard extends StatelessWidget {
     required this.jamMulai,
     required this.jamSelesai,
     required this.ruangan,
+    this.tingkatKelas,
     this.onTap,
   }) : super(key: key);
 
@@ -86,13 +88,35 @@ class TimeTableCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    mataPelajaran,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                    ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          mataPelajaran,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black87,
+                          ),
+                        ),
+                      ),
+                      if (tingkatKelas != null)
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: Colors.blue.shade100,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Text(
+                            'Kelas $tingkatKelas',
+                            style: TextStyle(
+                              fontSize: 11,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue.shade800,
+                            ),
+                          ),
+                        ),
+                    ],
                   ),
                   SizedBox(height: 6),
                   Row(
